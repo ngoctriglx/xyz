@@ -24,7 +24,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="asset/styles/home.css" type="text/css">
+    <link rel="stylesheet" href="{{asset('css/home.css')}}" type="text/css">
     {{-- <!-- <title>Footer</title> --> --}}
 </head>
 

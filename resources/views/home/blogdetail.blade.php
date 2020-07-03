@@ -1,6 +1,6 @@
 @extends('home.master')
 @section('css')
-  <link type="text/css" href="{{asset('asset/styles/blogdetail.css')}}" rel="stylesheet">
+  <link type="text/css" href="{{asset('css/blogdetail.css')}}" rel="stylesheet">
 @endsection
 @foreach ($new as $val)
 @section('title',$val->title)  
