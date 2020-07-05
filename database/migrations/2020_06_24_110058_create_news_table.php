@@ -19,6 +19,7 @@ class CreateNewsTable extends Migration
             $table->string('sub_title',100);
             $table->string('author',30);
             $table->string('content',255);
+            $table->integer('view')->length(10)->default(0);
             $table->timestamps();
         });
     }

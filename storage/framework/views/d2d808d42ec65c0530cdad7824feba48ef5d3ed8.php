@@ -27,7 +27,7 @@
     
 </head>
 <body>
-  <?php $__currentLoopData = $info; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+  
   <div>
     <nav class="master-nav">
       <input type="checkbox" id="check">
@@ -41,11 +41,12 @@
         <li><a href="#"><i class="fas fa-sun"></i></a></li>
         <?php if(Auth::check()): ?>
         <li data-toggle="modal" data-target="#myModal"><img class="profile"
-          src="<?php echo e($val->avatar); ?>"
+          
           alt="interactive-avatar" />
         </li>
         <?php else: ?>
-          <li><a href="<?php echo e(route('home.get.login')); ?>"><img class="profile" src="<?php echo e(URL::asset('/uploads/imguser/user.jpg')); ?>" alt=""></a></li>
+          <li><a href=""><img class="profile" src="<?php echo e(URL::asset('/uploads/imguser/user.jpg')); ?>" alt=""></a></li>
+          
         <?php endif; ?>
       </ul>
     </nav>
@@ -56,7 +57,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h4 class="modal-title">Profile</h4>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <button type="button" class="close" id="removeImage" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body long-modal">
               <div class="long-card" style="width: 30rem;">
@@ -67,13 +68,13 @@
                   </div>
                   <div class="avatar-preview">
                     <div class="long-image" id="imagePreview"
-                      style="background-image: url(<?php echo e($val->avatar); ?>);">
+                      
                     </div>
                   </div>
                 </div>
                 <div class="card-body">
-                  <h3 class="card-title"><strong><?php echo e($val->name); ?></strong></strong></h3>
-                  <h5 class="card-subtitle mb-2 text-muted"><?php echo e(Auth::User()->email); ?></h5>
+                  
+                  
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
                   <p>example@example.com</p>
                   <p><button class="button">Contact</button></p>
@@ -88,7 +89,7 @@
       </div>
     </div>
   </div>
-  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+  
 
   <?php echo $__env->yieldContent('content'); ?>
 

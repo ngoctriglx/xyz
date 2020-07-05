@@ -27,14 +27,15 @@ Route::group(['prefix' => 'home'], function () {
 
 Route::group(['prefix' => 'user'], function () {
 
-    Route::get('/login','User\LoginController@getLogin')->name('home.get.login');
-    Route::get('/logout','User\LoginController@getLogout')->name('home.get.logout');
+    Route::get('/login','User\LoginController@getLogin')->name('user.get.login');
+    Route::post('/login','User\LoginController@postLogin')->name('user.post.login');
+    Route::get('/logout','User\LoginController@getLogout')->name('user.get.logout');
 
-    Route::get('/loginfacebook/{provider}','User\LoginController@getFacebookRedirect')->name('home.get.facebookredirect');
-    Route::get('/loginfacebook/{provider}/callback','User\LoginController@getFacebookCallback')->name('home.get.facebookcallback');
+    Route::get('/loginfacebook/{provider}','User\LoginController@getFacebookRedirect')->name('user.get.facebookredirect');
+    Route::get('/loginfacebook/{provider}/callback','User\LoginController@getFacebookCallback')->name('user.get.facebookcallback');
 
-    Route::get('/logingoogle/{provider}','User\LoginController@getGoogleRedirect')->name('home.get.googleredirect');
-    Route::get('/logingoogle/{provider}/callback','User\LoginController@getGoogleCallback')->name('home.get.googlecallback');
+    Route::get('/logingoogle/{provider}','User\LoginController@getGoogleRedirect')->name('user.get.googleredirect');
+    Route::get('/logingoogle/{provider}/callback','User\LoginController@getGoogleCallback')->name('user.get.googlecallback');
 });
 
 Route::group(['prefix' => 'admin'], function () {

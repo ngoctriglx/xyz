@@ -14,7 +14,7 @@ class ShowController extends Controller
     }
     
     public function getBlog(){
-        $blog = DB::table('news')->orderBy('updated_at','desc')->paginate(7);
+        $blog = DB::table('news')->orderBy('updated_at','desc')->paginate(20);
         return view('home.blog',['blog' => $blog]);
     }
 

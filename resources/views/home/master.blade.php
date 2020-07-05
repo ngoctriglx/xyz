@@ -27,7 +27,7 @@
     
 </head>
 <body>
-  @foreach ($info as $val)
+  {{--  @foreach($info as $val)  --}}
   <div>
     <nav class="master-nav">
       <input type="checkbox" id="check">
@@ -41,11 +41,12 @@
         <li><a href="#"><i class="fas fa-sun"></i></a></li>
         @if (Auth::check())
         <li data-toggle="modal" data-target="#myModal"><img class="profile"
-          src="{{$val->avatar}}"
+          {{--  src="{{$val->avatar}}"  --}}
           alt="interactive-avatar" />
         </li>
         @else
-          <li><a href="{{route('home.get.login')}}"><img class="profile" src="{{URL::asset('/uploads/imguser/user.jpg')}}" alt=""></a></li>
+          <li><a href=""><img class="profile" src="{{URL::asset('/uploads/imguser/user.jpg')}}" alt=""></a></li>
+          {{-- {{route('home.get.login')}} --}}
         @endif
       </ul>
     </nav>
@@ -67,13 +68,13 @@
                   </div>
                   <div class="avatar-preview">
                     <div class="long-image" id="imagePreview"
-                      style="background-image: url({{$val->avatar}});">
+                      {{--  style="background-image: url({{$val->avatar}});">  --}}
                     </div>
                   </div>
                 </div>
                 <div class="card-body">
-                  <h3 class="card-title"><strong>{{$val->name}}</strong></strong></h3>
-                  <h5 class="card-subtitle mb-2 text-muted">{{Auth::User()->email}}</h5>
+                  {{--  <h3 class="card-title"><strong>{{$val->name}}</strong></strong></h3>  --}}
+                  {{--  <h5 class="card-subtitle mb-2 text-muted">{{Auth::User()->email}}</h5>  --}}
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
                   <p>example@example.com</p>
                   <p><button class="button">Contact</button></p>
@@ -88,7 +89,7 @@
       </div>
     </div>
   </div>
-  @endforeach
+  {{--  @endforeach  --}}
 
   @yield('content')
 

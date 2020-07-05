@@ -1,7 +1,7 @@
 
 <?php $__env->startSection('title','Du lịch bốn phương'); ?>
 <?php $__env->startSection('css'); ?>
-  <link href="<?php echo e(asset('asset/styles/blog.css')); ?>" rel="stylesheet" type="text/css" />
+  <link href="<?php echo e(asset('css/blog.css')); ?>" rel="stylesheet" type="text/css" />
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
 

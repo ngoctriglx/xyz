@@ -1,7 +1,7 @@
 @extends('home.master')
 @section('title','Du lịch bốn phương')
 @section('css')
-  <link href="{{asset('asset/styles/blog.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{asset('css/blog.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 @section('content')
 
