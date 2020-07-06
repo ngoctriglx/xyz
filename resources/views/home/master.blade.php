@@ -15,9 +15,9 @@
 
     <title>@yield('title')</title>
  
-    <link href="{{ asset('css/header.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('css/footer.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/profile.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/home/header.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/home/footer.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/home/profile.css')}}" rel="stylesheet" type="text/css">
     @yield('css')
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">

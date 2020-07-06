@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/','Admin\hihi@gethihi');
 //Route::get('/','Home\ShowController@getHome');
 
+Route::get('master', function () {
+    return view('admin.master');
+});
 Route::group(['prefix' => 'home'], function () {
 
     Route::get('/','Home\ShowController@getHome')->name('home.get.home');
@@ -40,8 +43,14 @@ Route::group(['prefix' => 'user'], function () {
 
 Route::group(['prefix' => 'admin'], function () {
     
+    Route::get('/','Admin\ShowController@getDashboard')->name('admin.get.dashboard');
+    Route::get('/post','Admin\ShowController@getPost')->name('admin.get.post');
+
     Route::get('/create','Admin\CreateController@getCreate')->name('admin.get.create');
     Route::post('/create','Admin\CreateController@postCreate')->name('admin.post.create');
+
+    Route::get('/add','Admin\PostController@getAdd')->name('admin.get.add');
+    Route::post('/add','Admin\PostController@postAdd')->name('admin.post.add');
     
 
 });

@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>@yield('title')</title>
+    <title><?php echo $__env->yieldContent('title'); ?></title>
     <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
-    <link href="{{asset('css/admin/main.css')}}" rel="stylesheet" type="text/css">
+    <link href="<?php echo e(asset('css/admin/main.css')); ?>" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -124,7 +124,7 @@
             </div>
         </div>
 
-        {{--  Layout Options  --}}
+        
         /////////
    
         <div class="app-main">
@@ -163,7 +163,7 @@
                 </div>
 
 
-                {{--  <!-- ///////////////////////////////////////////////////////////////////// -->  --}}
+                
 
 
                 <div class="scrollbar-sidebar">
@@ -173,7 +173,7 @@
                                 <!-- Dashboards -->
                             </li>
                             <li class="long-dashboard">
-                                <a href="{{route('admin.get.dashboard')}}" class="mm-active">
+                                <a href="<?php echo e(route('admin.get.dashboard')); ?>" class="mm-active">
                                     <i class="metismenu-icon pe-7s-rocket"></i>
                                     Dashboard
                                 </a>
@@ -184,7 +184,7 @@
                             <li class="app-sidebar__heading">...</li>
                             <div class="long-sidebar">
                                 <li>
-                                    <a href="{{route('admin.get.post')}}">
+                                    <a href="<?php echo e(route('admin.get.post')); ?>">
                                         <i class="metismenu-icon fa fa-book">
                                         </i>Bài viết
                                     </a>
@@ -213,13 +213,13 @@
                 </div>
             </div>
 
-        {{--  CONTENT --}}
-        @yield('content')
+        
+        <?php echo $__env->yieldContent('content'); ?>
     </div>
     </div>
     <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-    <script type="text/javascript" src="{{asset('js/admin.master.js')}}"></script>
-    @yield('script')
+    <script type="text/javascript" src="<?php echo e(asset('js/admin.master.js')); ?>"></script>
+    <?php echo $__env->yieldContent('script'); ?>
 </body>
 
-</html>
+</html><?php /**PATH E:\xampp\htdocs\blog\resources\views/admin/master.blade.php ENDPATH**/ ?>
