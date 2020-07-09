@@ -2,7 +2,7 @@
 @section('css')
   <link type="text/css" href="{{asset('css/home/blogdetail.css')}}" rel="stylesheet">
 @endsection
-@foreach ($new as $val)
+@foreach ($post as $val)
 @section('title',$val->title)  
 @section('content')
   <div>

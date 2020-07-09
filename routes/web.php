@@ -15,10 +15,14 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/','Admin\hihi@gethihi');
 //Route::get('/','Home\ShowController@getHome');
-
-Route::get('master', function () {
-    return view('admin.master');
+//test
+// Route::get('master', function () {
+//     return view('admin.master');
+// });
+Route::get('resetpw', function () {
+    return view('home.resetpassword');
 });
+/////////////////////////
 Route::group(['prefix' => 'home'], function () {
 
     Route::get('/','Home\ShowController@getHome')->name('home.get.home');
@@ -39,6 +43,10 @@ Route::group(['prefix' => 'user'], function () {
 
     Route::get('/logingoogle/{provider}','User\LoginController@getGoogleRedirect')->name('user.get.googleredirect');
     Route::get('/logingoogle/{provider}/callback','User\LoginController@getGoogleCallback')->name('user.get.googlecallback');
+
+    Route::post('/resetpw','User\ResetPassword@postResetPw')->name('user.post.resetpw');
+    Route::get('password/reset/{remember_token}','User\ResetPassword@checktoken');
+    Route::post('password/newpass',"User\ResetPassword@newPass")->name('user.post.newpass');
 });
 
 Route::group(['prefix' => 'admin'], function () {

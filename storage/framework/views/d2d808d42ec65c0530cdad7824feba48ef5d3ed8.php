@@ -15,9 +15,10 @@
 
     <title><?php echo $__env->yieldContent('title'); ?></title>
  
-    <link href="<?php echo e(asset('css/header.css')); ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo e(asset('css/footer.css')); ?>" rel="stylesheet" type="text/css">
-    <link href="<?php echo e(asset('css/profile.css')); ?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo e(asset('css/home/header.css')); ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo e(asset('css/home/footer.css')); ?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo e(asset('css/home/profile.css')); ?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo e(asset('css/home/notification.css')); ?>" rel="stylesheet" type="text/css">
     <?php echo $__env->yieldContent('css'); ?>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -27,7 +28,6 @@
     
 </head>
 <body>
-  
   <div>
     <nav class="master-nav">
       <input type="checkbox" id="check">
@@ -37,16 +37,23 @@
       <ul>
         <li><a class="active" href="<?php echo e(route('home.get.home')); ?>"><i class="fas fa-home"></i></a></li>
         <li><a href="<?php echo e(route('home.get.blog')); ?>"><i class="fas fa-pencil-alt"></i></a></li>
-        <li><a href="#"><i class="fas fa-headphones"></i></a></li>
-        <li><a href="#"><i class="fas fa-sun"></i></a></li>
+        
+        
+        <li>
+          <a href="#" class="notification">
+            <i class="fa fa-bell"></i>
+            <span class="badge">3</span>
+          </a>
+        </li>
         <?php if(Auth::check()): ?>
         <li data-toggle="modal" data-target="#myModal"><img class="profile"
-          
+          <?php $__currentLoopData = $info; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+           src="<?php echo e($val->avatar); ?>"
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           alt="interactive-avatar" />
         </li>
         <?php else: ?>
-          <li><a href=""><img class="profile" src="<?php echo e(URL::asset('/uploads/imguser/user.jpg')); ?>" alt=""></a></li>
-          
+          <li><a href="<?php echo e(route('user.get.login')); ?>"><img class="profile" src="<?php echo e(URL::asset('/uploads/imguser/user.jpg')); ?>" alt=""></a></li>
         <?php endif; ?>
       </ul>
     </nav>
@@ -68,7 +75,12 @@
                   </div>
                   <div class="avatar-preview">
                     <div class="long-image" id="imagePreview"
-                      
+                    <?php if(Auth::check()): ?>
+                    <?php $__currentLoopData = $info; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    style="background-image: url(<?php echo e($val->avatar); ?>);"> 
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <?php endif; ?>
+                    
                     </div>
                   </div>
                 </div>
@@ -89,7 +101,6 @@
       </div>
     </div>
   </div>
-  
 
   <?php echo $__env->yieldContent('content'); ?>
 

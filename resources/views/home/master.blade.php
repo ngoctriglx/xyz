@@ -18,6 +18,7 @@
     <link href="{{ asset('css/home/header.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/home/footer.css')}}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/home/profile.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/home/notification.css')}}" rel="stylesheet" type="text/css">
     @yield('css')
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -27,7 +28,6 @@
     
 </head>
 <body>
-  {{--  @foreach($info as $val)  --}}
   <div>
     <nav class="master-nav">
       <input type="checkbox" id="check">
@@ -37,16 +37,23 @@
       <ul>
         <li><a class="active" href="{{route('home.get.home')}}"><i class="fas fa-home"></i></a></li>
         <li><a href="{{route('home.get.blog')}}"><i class="fas fa-pencil-alt"></i></a></li>
-        <li><a href="#"><i class="fas fa-headphones"></i></a></li>
-        <li><a href="#"><i class="fas fa-sun"></i></a></li>
+        {{--  <li><a href="#"><i class="fas fa-headphones"></i></a></li>  --}}
+        {{--  <li><a href="#"><i class="fas fa-sun"></i></a></li>  --}}
+        <li>
+          <a href="#" class="notification">
+            <i class="fa fa-bell"></i>
+            <span class="badge">3</span>
+          </a>
+        </li>
         @if (Auth::check())
         <li data-toggle="modal" data-target="#myModal"><img class="profile"
-          {{--  src="{{$val->avatar}}"  --}}
+          @foreach($info as $val)
+           src="{{$val->avatar}}"
+          @endforeach
           alt="interactive-avatar" />
         </li>
         @else
-          <li><a href=""><img class="profile" src="{{URL::asset('/uploads/imguser/user.jpg')}}" alt=""></a></li>
-          {{-- {{route('home.get.login')}} --}}
+          <li><a href="{{route('user.get.login')}}"><img class="profile" src="{{URL::asset('/uploads/imguser/user.jpg')}}" alt=""></a></li>
         @endif
       </ul>
     </nav>
@@ -68,7 +75,12 @@
                   </div>
                   <div class="avatar-preview">
                     <div class="long-image" id="imagePreview"
-                      {{--  style="background-image: url({{$val->avatar}});">  --}}
+                    @if (Auth::check())
+                    @foreach($info as $val)
+                    style="background-image: url({{$val->avatar}});"> 
+                    @endforeach
+                    @endif
+                    
                     </div>
                   </div>
                 </div>
@@ -89,7 +101,6 @@
       </div>
     </div>
   </div>
-  {{--  @endforeach  --}}
 
   @yield('content')
 

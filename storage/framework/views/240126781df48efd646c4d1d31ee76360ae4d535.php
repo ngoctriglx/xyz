@@ -1,7 +1,7 @@
 
 <?php $__env->startSection('title','Du lịch bốn phương'); ?>
 <?php $__env->startSection('css'); ?>
-  <link href="<?php echo e(asset('css/blog.css')); ?>" rel="stylesheet" type="text/css" />
+  <link href="<?php echo e(asset('css/home/blog.css')); ?>" rel="stylesheet" type="text/css" />
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
 
@@ -37,7 +37,7 @@
 
     <div class="container-fluid">
       <div class="row wrap-cards">
-        <?php $__currentLoopData = $blog; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <?php $__currentLoopData = $post; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
           <div class="col-sm card-items">
             <div class="card" style="width: 20rem;">
               <img class="card-img-top" src="https://images.unsplash.com/photo-1592218636432-1fcfb03707dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Card image cap">
@@ -51,7 +51,7 @@
       </div>
     </div>
   </div>
-  <div><?php echo e($blog->links()); ?></div>
+  <div><?php echo e($post->links()); ?></div>
   <?php $__env->stopSection(); ?>
   <?php $__env->startSection('script'); ?>
   

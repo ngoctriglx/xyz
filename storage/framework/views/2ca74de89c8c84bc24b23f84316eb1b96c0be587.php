@@ -8,7 +8,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="<?php echo e(asset('css/home.css')); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo e(asset('css/home/home.css')); ?>" type="text/css">
     
 </head>
 

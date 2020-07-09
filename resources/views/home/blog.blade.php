@@ -37,7 +37,7 @@
 
     <div class="container-fluid">
       <div class="row wrap-cards">
-        @foreach ($blog as $val)
+        @foreach ($post as $val)
           <div class="col-sm card-items">
             <div class="card" style="width: 20rem;">
               <img class="card-img-top" src="https://images.unsplash.com/photo-1592218636432-1fcfb03707dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Card image cap">
@@ -51,7 +51,7 @@
       </div>
     </div>
   </div>
-  <div>{{ $blog->links() }}</div>
+  <div>{{ $post->links() }}</div>
   @endsection
   @section('script')
   
